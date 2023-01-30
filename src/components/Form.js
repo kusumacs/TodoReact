@@ -3,6 +3,7 @@ import styles from "../style.module.css";
 const Form=({todo,settodo,todolist,settodolist})=>{
  
     const handleChange=(event)=>{
+        console.log(event);
         settodo(event.target.value);
     }
 
