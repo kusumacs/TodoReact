@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Form from "./components/Form";
+import React, { useState } from "react";
+import TodoList from "./components/TodoList";
+import { PostList } from "./components/CodeEvoPostList";
+import { CodeEvoForm } from "./components/CodeEvoForm";
+import {UseTransitioneffect} from "./components/UseTransitionEffect";
+import {Routes,Route} from 'react-router-dom'
+import {Home} from './components/Home';
+import {About} from './components/About';
 
 function App() {
+  const [todo, settodo]=useState("");
+  const [todolist,settodolist]=useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/about" element={<About/>}></Route>
+
+      </Routes>
+     {/* <React.Fragment>
+      <> */}
+      <Header></Header>
+      <Form todo={todo} settodo={settodo} todolist={todolist} settodolist={settodolist} ></Form>
+      <TodoList todolist={todolist} settodolist={settodolist}></TodoList>
+      <PostList/>
+      {/* <CodeEvoForm/> */}
+      {/* <UseTransitioneffect/> */}
+      {/* </>
+      </React.Fragment> */}
     </div>
   );
 }
